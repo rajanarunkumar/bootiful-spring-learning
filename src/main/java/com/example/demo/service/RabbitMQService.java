@@ -11,7 +11,6 @@ public class RabbitMQService {
     private AmqpTemplate amqpTemplate;
 
     public void send(String queue, String payload) {
-//        rabbitTemplate.convertAndSend(queue, payload);
         amqpTemplate.convertAndSend(queue, payload);
     }
 }
