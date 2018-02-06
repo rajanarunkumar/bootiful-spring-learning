@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: Arun-Spring-Boot
+server:
+  compression:
+    enabled: true
+  display-name: Arun-Spring-Boot
+  port: 61666
+management:
+  endpoint:
+    heapdump:
+      enabled: false
+    threaddump:
+      enabled: false
+---
+spring:
+  profiles: local
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    org.hibernate.tool.hbm2ddl: debug
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+    org.springframework.cache: trace
+trace: true
+debug: true
