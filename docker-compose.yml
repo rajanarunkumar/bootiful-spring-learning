@@ -1,0 +1,21 @@
+version: "3.6"
+services:
+  amqp:
+    image: rabbitmq:alpine
+    container_name: arunmbp-rabbitmq
+    ports:
+      - "5672:5672"
+  cassandra:
+    image: arhea/cassandra:latest
+    container_name: arunmbp-cassandra
+    ports:
+      - "9042:9042"
+  application:
+    image: bootiful-spring-learning/bootiful-learning:latest
+    container_name: arunmbp-bsl
+    depends_on:
+      - amqp
+      - cassandra
+    restart: on-failure
+    ports:
+      - "61666:61666"

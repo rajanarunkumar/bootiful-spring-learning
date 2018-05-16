@@ -4,7 +4,6 @@ spring:
 server:
   compression:
     enabled: true
-  display-name: Arun-Spring-Boot
   port: 61666
 management:
   endpoint:
@@ -15,19 +14,6 @@ management:
 ---
 spring:
   profiles: local
-  h2:
-    console:
-      enabled: true
-      path: /h2
-  datasource:
-    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: true
   output:
     ansi:
       enabled: always
@@ -37,5 +23,43 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql: trace
     org.springframework.cache: trace
-trace: true
+    org.springframework.data: debug
+    org.springframework.web: debug
+trace: false
 debug: true
+---
+spring:
+  profiles: h2
+  h2:
+      console:
+        enabled: true
+        path: /h2
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  flyway:
+    enabled: false
+---
+spring:
+  profiles: amqp
+  rabbitmq:
+    host: arunmbp-rabbitmq
+    port: 5672
+---
+spring:
+  profiles: cassandra
+  data:
+    cassandra:
+      keyspace-name: testcass
+      contact-points: arunmbp-cassandra
+      port: 9042
+      schema-action: create_if_not_exists
+      fetch-size: 1000
+  flyway:
+    enabled: false

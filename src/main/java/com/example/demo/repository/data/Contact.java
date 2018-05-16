@@ -14,12 +14,13 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public class Contact implements Serializable {
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
-    private Long id;
-    @Embedded
-    private Phone contact;
 
-    @ManyToOne
-    private Employee employee;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Id
+  private Long id;
+  @Embedded
+  private Phone contact;
+
+  @ManyToOne
+  private Employee employee;
 }

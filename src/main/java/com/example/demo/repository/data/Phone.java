@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Embeddable
 public class Phone implements Serializable {
 
-    private Long number;
-    @Enumerated(value = EnumType.ORDINAL)
-    private ContactType contactType;
+  private Long number;
+  @Enumerated(value = EnumType.ORDINAL)
+  private ContactType contactType;
 }

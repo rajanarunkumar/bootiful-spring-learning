@@ -12,11 +12,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ActiveProfiles({"local"})
 class RabbitMQServiceTest {
 
-    @Autowired
-    private RabbitMQService rabbitMQService;
+  @Autowired
+  private RabbitMQService rabbitMQService;
 
-    @org.junit.jupiter.api.Test
-    void send() {
-        rabbitMQService.send(EventQueues.TEST, "Hello World Test from Arun!!");
-    }
+  @org.junit.jupiter.api.Test
+  void send() {
+    rabbitMQService.send(EventQueues.TEST, "Hello World Test from Arun!!");
+  }
 }

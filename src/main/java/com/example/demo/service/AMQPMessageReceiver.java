@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class AMQPMessageReceiver {
 
-    public void receive(String payload) {
-        log.info("Printing payload {} ", payload);
-    }
+  public void receive(String payload) {
+    log.info("Printing payload {} ", payload);
+  }
 }

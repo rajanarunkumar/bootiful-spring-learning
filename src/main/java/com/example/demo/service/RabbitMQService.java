@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQService {
 
-    @Autowired
-    private AmqpTemplate amqpTemplate;
+  @Autowired
+  private AmqpTemplate amqpTemplate;
 
-    public void send(String queue, String payload) {
-        amqpTemplate.convertAndSend(queue, payload);
-    }
+  public void send(String queue, String payload) {
+    amqpTemplate.convertAndSend(queue, payload);
+  }
 }
